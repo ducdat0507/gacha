@@ -121,9 +121,12 @@ popups.draw = {
                     let [pack, rarity, id, count] = state.loot.cards[state.index];
                     let card = createCardUI(pack, rarity, id);
                     registerTooltip(card, tooltipTemplates.card(pack, rarity, id));
-                    card.classList.add("anim-draw-in");
-                    if (count > 1) {
-                        let holder = $make("div.draw-amount.number", "×" + format(count));
+                    card.classList.add("anim-draw-in");     
+                    let data = cards[pack][rarity][id];
+                    let cstate = game.cards[pack]?.[rarity]?.[id] ?? { stars: 0 };
+                    let isShredded = data.crown || cstate.stars >= 5;
+                    if (count > 1 || isShredded) {
+                        let holder = $make("div.draw-amount.number", (isShredded ? "♻" : "") + (count == 1 ? "" : "×" + format(count)));
                         card.append(holder);
                     }
                     localElms.list.append(card);
