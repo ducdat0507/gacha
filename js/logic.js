@@ -279,13 +279,10 @@ function doDraw(count) {
             if (data.faction && game.drawPref.skills.sun && effects.skillSunDup > 0) {
                 loot.count += new lootalot.LootTable([{ item: "", p: effects.skillSunDup }]).loot(loot.count)[0]?.count ?? 0;
             }
-
-            if (hasCard("standard", "ex", "zip")) {
-                lootList.cards.push([pack, rarity, id, loot.count]);
-            } else for (let i = 0; i < loot.count; i++) {
-                lootList.cards.push([pack, rarity, id, 1]);
-            }
-
+            let count = hasCard("standard", "ex", "zip") ? loot.count : 1;
+            let isNew = !hasCard(pack, rarity, id);
+            let isShredded = false;
+            
             if (flags.unlocked.shreds) {
                 let data = cards[pack][rarity][id];
                 let state = game.cards[pack]?.[rarity]?.[id] ?? { stars: 0 };
@@ -298,9 +295,11 @@ function doDraw(count) {
                     let rMult = [effects.shredRMult, effects.shredSRMult, effects.shredSSRMult, effects.shredURMult];
                     for (let i = 0; i <= rIndex; i++) cardShreds *= rMult[i];
                     resLoot.shreds += cardShreds;
-                    console.log(pack, rarity, id, cardShreds);
+                    if (!isNew) isShredded = true;
                 }
             }
+            let lootItem = [pack, rarity, id, count, isNew, isShredded];
+            lootList.cards.push(lootItem);
         }
     }
 
