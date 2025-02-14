@@ -64,3 +64,27 @@ function spawnBadgeNotif(badge) {
         };
     }
 }
+
+
+function createNotificationListener() {
+    let fireWasDone = true;
+    let energyWasCapped = true;
+    
+    return () => {
+        let fireDone = game.time.skillCooldowns.fire == 0;
+        let energyCapped = game.res.energy > effects.energyCap;
+
+    requestAnimationFrame(loop);
+        if (fireDone && !fireWasDone){
+            new Notification("Burst has recharged!").onclick = () => window.focus()
+        }
+        if (energyCapped && !energyWasCapped) {
+            new Notification("Energy has filled!").onclick = () => window.focus()
+        }
+        
+        fireWasDone = fireDone;
+        energyWasCapped = energyCapped;
+    }
+}
+
+addEvent("frame", createNotificationListener());

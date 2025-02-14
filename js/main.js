@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateMusic();
     setTab("collection");
     time = performance.now();
-    requestAnimationFrame(loop);
+    setEveryFrameOrInterval(loop, 10000);
     setTimeout(() => checkCloudSave(), 1000);
     
     $("#loading").remove();
@@ -26,6 +26,12 @@ function loop() {
 
     onFrame();
     updateNotifs();
+}
 
-    requestAnimationFrame(loop);
+async function setEveryFrameOrInterval(handler, timeout) {
+    var safeHandler = async (t) => handler(t);
+    while (true) {
+        let t = await new Promise(r => { requestAnimationFrame(r); setTimeout(() => r(performance.now()), timeout) });
+        safeHandler(t);
+    }
 }
