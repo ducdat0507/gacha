@@ -118,12 +118,19 @@ popups.draw = {
                     removeEvent("frame", popups.draw.onFrame);
                     break;
                 } else {
-                    let [pack, rarity, id, count] = state.loot.cards[state.index];
+                    let [pack, rarity, id, count, isNew, isShredded] = state.loot.cards[state.index];
                     let card = createCardUI(pack, rarity, id);
                     registerTooltip(card, tooltipTemplates.card(pack, rarity, id));
                     card.classList.add("anim-draw-in");
-                    if (count > 1) {
-                        let holder = $make("div.draw-amount.number", "×" + format(count));
+
+                    let badgeItems = [
+                        isNew ? "NEW" : null,
+                        isShredded ? "♻" : null,
+                        count > 1 ? "×" + format(count) : null,
+                    ].filter(e =>e !== null);
+                    
+                    if (badgeItems.length > 0) {
+                        let holder = $make("div.draw-amount.number", ...badgeItems);
                         card.append(holder);
                     }
                     localElms.list.append(card);
