@@ -27,7 +27,7 @@ i18nStrings.zh = {
      */
     verbs: {
         draw: {
-            draw: "抽卡",
+            draw: "抽",
             draws: "抽卡",
             drew: "抽了",
             drawn: "抽到",
@@ -76,10 +76,10 @@ i18nStrings.zh = {
      * Common or uncategorized strings.
      */
     common: {
-        title: "一万亿次免费{Draws}",
-        title_rich: "<span class='number'>一万亿</span>次免费{Draws}",
+        title: "万亿免费{draw}",
+        title_rich: "<span class='number'>一万亿</span>次免费{draws}",
 
-        draw: "{Draw}",
+        draw: "{draws}",
         draw_inCooldown: "冷却中",
         draw_outOfDraws: "没有更多{draws}了...",
         switch: {
@@ -97,7 +97,7 @@ i18nStrings.zh = {
         new: "新!",
 
         hint_title: "你有{0}次免费{draws}！",
-        hint_desc: "点击下方这个大“{Draw}”按钮开始{drawing}吧！",
+        hint_desc: "点击下方这个大“{drawing}”按钮开始{draws}吧！",
         hint_ios_title: "获得最佳体验：",
         hint_ios_desc: "点击{0} -> “添加到主屏幕” -> “添加”",
     },
@@ -209,7 +209,7 @@ i18nStrings.zh = {
                 ad_effects: {
                     points_draw: "“看” 一个 “广告” 来为接下来的{1}{draws}获取{x0:1}倍更多点数！",
                     shreds_draw: "“看” 一个 “广告” 来为接下来的{1}{draws}获取{x0:1}倍更多碎片！",
-                    faction_draw: "“看” 一个 “广告” 来为接下来的{1s}获取{x0:1}倍更多阵营之力！",
+                    faction_draw: "“看” 一个 “广告” 来为接下来的{1}{draws}获取{x0:1}倍更多阵营之力！",
                     energy_time: "“看” 一个 “广告” 来为接下来的{1s}获取{x0:1}倍更多批量能量！",
                 },
                 ad_cooldown: "新的 “广告” 在 {0} 后可用",
@@ -236,19 +236,42 @@ i18nStrings.zh = {
                 saves: "存档管理",
                 other: "其他"
             },
+            headers: {
+                prefs: {
+                    i18n: "本地化 & 存档数据",
+                    logic: "游戏行为",
+                    video: "图像 & UI",
+                    audio: "声音"
+                },
+                saves: {
+                    storage: "保存"
+                },
+                other: {
+                    info: "信息",
+                    bonus: "其他"
+                },
+            },
             items: {
                 language: "语言",
+                updateRate: "图像更新频率",
+                confirm: "确定弹窗",
                 notation: "数字格式",
                 verb: "动词",
                 cardImages: "卡牌图像",
-                music: "背景音乐",
+                cardSize: "卡牌大小",
+                musicVolume: "背景音乐音量",
                 localSave: "本地存档",
                 cloudSave: "云存档",
                 info: "信息",
                 otherOther: "其他其他",
             },
             values: {
+                updateRate: {
+                    auto: "自动",
+                    perSec: "{0} TPS",
+                },
                 items: {
+                    showConfirms: "打开确定弹窗设置",
                     manualSave: "手动保存",
                     importExport: "导入/导出存档",
                     hardReset: "硬重置",
@@ -288,6 +311,15 @@ i18nStrings.zh = {
                 verb_desc: "更改与{drawing}卡牌相关的动词，如游戏标题和物品描述中的动词。",
                 john_note: "(注意：链接将在此标签页中打开，按住Ctrl点击可避免意外关闭游戏)",
             },
+            popups: {
+                confirm: {
+                    title: "确定弹窗设置界面",
+                    desc: "当...时询问我是否确定:",
+                    types: {
+                        sellAccount: "出售账号时",
+                    }
+                }
+            }
         },
     },
 
@@ -303,6 +335,7 @@ i18nStrings.zh = {
 
             action_continue: "继续",
             action_close: "关闭",
+            action_reload: "刷新",
         },
         draw: {
             strings: {
@@ -1269,6 +1302,9 @@ i18nStrings.zh = {
                 },
                 bulkMult: {
                     name: "卡牌倍率",
+                },
+                energySpeed: {
+                    name: "额外能量速率",
                 },
                 cardRChance: {
                     name: "<rarity rarity='r'></rarity>出现几率",
