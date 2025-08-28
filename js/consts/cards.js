@@ -687,10 +687,10 @@ const cards = {
                 effects: [
                     (level, star) => [0, 2, 3, 5, 7, 10][star],
                     (level, star) => game.stats.skillsUsed.fire ?? 0,
-                    (level, star) => fx(0) * cap(fx(1), 50)
+                    (level, star) => fx(0) * fx(1)
                 ],
                 effectors: {
-                    skillFireSkip: [priority.additive, (x) => x + fx(2)]
+                    skillFireSkip: [priority.additive, (x) => x + fx(0) * (game?.stats?.skillUsed?.fire ?? 0)]
                 }
             },
             "s_water": {
