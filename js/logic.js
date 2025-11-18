@@ -64,26 +64,18 @@ function onFrame() {
         }
         if (effects.autobuySpeed) {
             autobuyTime += delta / 1000 * effects.autobuySpeed;
-            let autobuyCount = Math.floor(autobuyTime);
-            autobuyTime -= autobuyCount;
-            let upgradedAny = false;
-            for (let elm of tabs.collection.cardList) {
-                let [pack, rarity, id] = elm;
-                let canBought = getCardLevelMax(pack, rarity, id);
-                console.log("Buying", canBought, "of", pack, rarity, id);
-                if (canBought > 0) {
-                    canBought = Math.min(canBought, autobuyCount);
-                    autobuyCount -= canBought;
-                    game.stats.autobuyBought += canBought;
-                    levelUpCard(pack, rarity, id, canBought, false, false);
-                    upgradedAny = true;
+            while (autobuyTime >= 1) {
+                autobuyTime -= 1;
+                const boughtCard = tabs.collection.cardList.find(x => getCardLevelMax(x[0], x[1], x[2]) > 0);
+                if (boughtCard) {
+                    const [pack, rarity, id] = boughtCard;
+                    levelUpCard(pack, rarity, id, 1, true, false);
+                    // re-sort cards
+                    tabs.collection.updateCards();
                 }
-                if (autobuyCount <= 0) break;
-            }
-            if (upgradedAny) {
-                updateEffects();
-                updateUnlocks();
-                emit("card-upgrade");
+                else {
+                    autobuyTime = 0;
+                }
             }
         }
     }
