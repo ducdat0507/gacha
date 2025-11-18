@@ -169,7 +169,6 @@ function addWithCapEfficiency(a, cap, strength = 2) {
 
 function sumGeometricSeries(base, rate, n, owned = 0) {
     base *= rate ** owned;
-    if (n == 1) return base;
     return base * (1 - rate ** n) / (1 - rate);
 }
 function maxGeometricSeries(base, rate, amount, owned = 0) {
