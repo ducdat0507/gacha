@@ -13,7 +13,10 @@ let i18nDefault = i18nStrings.en = {
      * For example: In English, `"free {draws}"` can be replaced into "free draws", "free pulls",
      * or "free summons" based on the verb the player selected in Settings.
      * 
-     * You can declare as much verb forms as your language needs.
+     * Each verb can contain different forms of the same verb needed for the language, i.e. in English a verb
+     * can be in the past tense (drew), the present tense (drawing), and the perfect tense (drawn).
+     * Keys are used to be referenced in the string so it's recommended to be translated. You can declare as much 
+     * verb forms as your language needs.
      * 
      * `_anim` is used to determine per-verb special card opening animation. For example: `_anim: "spin"`
      * makes the card pack spin while it is opened and should be used on verbs that are near in meaning
