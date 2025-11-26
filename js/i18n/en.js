@@ -3,7 +3,7 @@ let i18nDefault = i18nStrings.en = {
     name: "English",
     /** The number notation to use as the default with the language. */
     notation: "common",
-    /** The primary verb. See `verb` for more info. */
+    /** The primary verb. See the comment for `verbs` for more info. */
     primaryVerb: "draw",
 
     /** 
