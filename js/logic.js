@@ -68,17 +68,16 @@ function onFrame() {
             autobuyTime -= autobuyCount;
             let upgradedAny = false;
             for (let elm of tabs.collection.cardList) {
+                if (autobuyCount <= 0) break;
                 let [pack, rarity, id] = elm;
-                let canBought = getCardLevelMax(pack, rarity, id);
-                console.log("Buying", canBought, "of", pack, rarity, id);
-                if (canBought > 0) {
-                    canBought = Math.min(canBought, autobuyCount);
-                    autobuyCount -= canBought;
-                    game.stats.autobuyBought += canBought;
-                    levelUpCard(pack, rarity, id, canBought, false, false);
+                let levelsToBuy = Math.min(getCardLevelMax(pack, rarity, id), autobuyCount);
+                if (levelsToBuy > 0) {
+                    console.log("Buying", levelsToBuy, "of", pack, rarity, id);
+                    autobuyCount -= levelsToBuy;
+                    game.stats.autobuyBought += levelsToBuy;
+                    levelUpCard(pack, rarity, id, levelsToBuy, false, false);
                     upgradedAny = true;
                 }
-                if (autobuyCount <= 0) break;
             }
             if (upgradedAny) {
                 updateEffects();
