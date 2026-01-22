@@ -7,24 +7,28 @@ i18nStrings.zh = {
     /** The primary verb. See `verb` for more info. */
     primaryVerb: "draw",
 
-    /**
+    /** 
      * A list of verbs for the player to choose from. Each verb contains a list of forms
-     * that are used to be inserted into strings.
-     *
-     * For example: In English, `"free {draws}"` can be replaced into "free draws", "free pulls",
-     * or "free summons" based on the verb the player selected in Settings.
-     *
-     * You can declare as much verb forms as your language needs.
-     *
+     * that are used to be inserted into strings. For example: In English, `"free {draws}"` can be replaced 
+     * into "free draws", "free pulls", or "free summons" based on the verb the player selected in Settings.
+     * 
+     * Because a language might have different verbs to refer to the act of drawing, this is not a hard list.
+     * Feel free to add or remove verbs as fit for your language.
+     * 
+     * Each verb can contain different forms of the same verb needed for the language, i.e. in English a verb
+     * can have a past tense (drew), a present participle (drawing), and a past participle (drawn).
+     * Keys of forms are used to be referenced in the string so it's recommended to be translated. You can 
+     * declare as much verb forms as your language needs.
+     * 
      * `_anim` is used to determine per-verb special card opening animation. For example: `_anim: "spin"`
      * makes the card pack spin while it is opened and should be used on verbs that are near in meaning
      * to the word "spin".
-     *
+     * 
      * `_equiv` declares a verb's equivalent verb in English and is used to determine which verb to change to
      * when the player changes the game's language.
-     *
-     * @type {{[verb: string]: { _equiv?: string, _anim?: string, [form: string]: string }}}
-     */
+     * 
+     * @type {{[verb: string]: { _equiv?: string, _anim?: string, [form: string]: string }}} 
+    */
     verbs: {
         draw: {
             draw: "抽",
@@ -77,7 +81,7 @@ i18nStrings.zh = {
      */
     common: {
         title: "万亿免费{draw}",
-        title_rich: "<span class='number'>一万亿</span>次免费{draws}",
+        title_rich: "<span class='number'>万亿</span>免费{draws}",
 
         draw: "{draws}",
         draw_inCooldown: "冷却中",
@@ -128,10 +132,10 @@ i18nStrings.zh = {
             minute: "{0}分钟",
             hour: "{0}小时",
             day: "{0}天",
-            joiner: "{1}{0}",
+            joiner: "{1} {0}",
         },
         chance: {
-            fraction: "{1}中的{0}",
+            fraction: "{1}分之{0}",
             percent: "{0}%"
         }
     },
@@ -573,6 +577,15 @@ i18nStrings.zh = {
                 thanks1_foot: "(作为灵感来源)",
             }
         },
+        endgame: {
+            title: "Congratulations",
+            strings: {
+                body1: "You have obtained all badges and thus reached the end game! Look out for the next content update!",
+                body2: "In the meantime, you can {0} or continue grinding accounts if you like.",
+                body2_link0: "check out my other stuff",
+                time: "Total time played: {0}",
+            }
+        },
         offline: {
             title: "欢迎回来！",
             desc_time: "你离线了 {0} 。",
@@ -696,7 +709,7 @@ i18nStrings.zh = {
                 n3: {
                     name: "卡包",
                     desc: "{+0}基础批量。基础批量增加你一次性{draws}的数量。",
-                    quote: "嘛，如果你想用完那一万亿次卡牌{draws}，你需要开始一次{drawing}多张，知道吧？"
+                    quote: "嘛，如果你想用完那一万亿次卡牌{draws}，你需要开始一次{drawing}多张，明白吧？"
                 },
                 n4: {
                     name: "自填充包",
@@ -751,14 +764,14 @@ i18nStrings.zh = {
                     quote: "越大越好"
                 },
                 n3: {
-                    name: "卡牌开启工厂",
+                    name: "卡牌开启器工厂",
                     desc: "{+0%}批能速率，但{+1%}抽卡冷却时间。",
                     quote: "生产大量卡牌开启器"
                 },
                 n3b: {
                     name: "回收利用",
                     desc: "{+0%}批能速率。",
-                    quote: "把抽到的卡牌回收了继续抽——仔细想想还挺环保？"
+                    quote: "把抽到的卡牌回收了继续抽——仔细想想还挺环保"
                 },
                 n3c: {
                     name: "堆肥机",
@@ -768,7 +781,7 @@ i18nStrings.zh = {
                 n4: {
                     name: "耐力训练",
                     desc: "{+0%}卡牌倍率，但{+1%}抽卡冷却时间和卡包拆解时间。",
-                    quote: "卡包接受了一些耐力训练！现在它们更难拆开，但内容物更多了！"
+                    quote: "卡包接受了一些耐力训练！现在它们更难拆开，但内容更多了！"
                 },
                 n4b: {
                     name: "反转牌",
@@ -927,7 +940,7 @@ i18nStrings.zh = {
                 n0d: {
                     name: "钻石",
                     desc: "{x0}从<rarity rarity='ssr'></rarity>及以上卡牌获得的碎片。",
-                    quote: "因为已经可以从煤炭中合成钻石了，实际钻石上相当常见。但合成钻石的设备太昂贵了，钻石仍被视为富人的玩具"
+                    quote: "钻石实际上相当常见，毕竟已经可以用煤炭压缩得到了。但压缩钻石的设备过于昂贵，他们仍被视为富人的玩具"
                 },
                 n1a: {
                     name: "星系",
@@ -960,9 +973,9 @@ i18nStrings.zh = {
                     quote: "趁着促销还没结束赶快买买买！"
                 },
                 n1e: {
-                    name: "质疑现实的奇怪的AI生成的棋盘地板",
+                    name: "AI生成的奇怪棋盘地板供质疑现实",
                     desc: "根据你完成的技能反应次数获得更多碎片。<br>(当前：{0}次反应 ⇒ {+1%}碎片获取)",
-                    quote: "所有的技术进步，就为了这个"
+                    quote: "所有的技术进步，就为了个这"
                 },
                 n2: {
                     name: "拒看许可证",
@@ -1057,7 +1070,7 @@ i18nStrings.zh = {
                     quote: "用树木的灰烬给卡牌附魔，我们怎么没早点想到这个？"
                 },
                 n1b: {
-                    name: "沉睡游戏",
+                    name: "隔夜游戏",
                     desc: "当<b>冻结滴落</b>激活时，增加批能速率{+0%}。",
                     quote: "等等，这不是一开始的意思吗？"
                 },
@@ -1094,23 +1107,23 @@ i18nStrings.zh = {
                 n1e: {
                     name: "协同作用",
                     desc: "<b>简化</b>的基础增益效果获得<rarity rarity=n></rarity><b>卡包</b>效果的{^0:1}。<br>(当前：{+1})",
-                    quote: "天哪，这是synergism的哏吗？？？？？"
+                    quote: "天哪，这是synergism的梗吗？？？？？"
                 },
                 n1e0: {
                     name: "至暗深渊墨水",
                     desc: "启用月阵营时额外增加{+0%}的卡牌倍率。",
-                    quote: "Vantablack在这墨水面前都相形见绌"
+                    quote: "Vantablack都没这墨水黑"
                 }
             },
             ex: {
                 zip: {
                     name: "StackRAR",
-                    desc: "在{draw}视图中将重复卡牌分组，尽管压缩会使你的卡牌显示速度减半。同时移除最大<span class='number'>100</span>批量{draw}限制。",
+                    desc: "在{draw}视图中将重复卡牌分组，尽管压缩会使你的卡牌揭示速度减半。同时移除最大<span class='number'>100</span>批量抽取{draw}限制。",
                     quote: "请注意，StackRAR不是免费卡牌。在40天试用期后，你必须购买许可证或从你的收藏中销毁此卡牌"
                 },
                 shred: {
                     name: "粉碎机",
-                    desc: "无用的重复卡牌会被粉碎成一种叫做碎片的新货币，包括皇冠卡牌和最高星级卡牌。",
+                    desc: "解锁将无用的重复卡牌粉碎成碎片的能力，包括皇冠卡牌和最高星级卡牌。",
                     quote: "假装什么都没发生过"
                 },
                 offline: {
@@ -1120,13 +1133,13 @@ i18nStrings.zh = {
                 },
                 faction: {
                     name: "用烂了的阵营系统",
-                    desc: "解锁阵营。使用阵营{draws}获取阵营货币和特定阵营的卡牌。<br>注意：阵营货币有时会害羞地躲着不出现。",
+                    desc: "解锁阵营。使用阵营{draws}获取阵营货币和特定阵营的卡牌。<br>注意：阵营货币有时不会出现。",
                     quote: "很久以前，五大阵营和谐共处。直到烈火阵营发动攻击，一切都变了。"
                 },
                 pickit: {
                     name: "挑卡助手尊享版",
                     desc: "解锁尊享版排序功能，但有使用时限。"
-                        + "挑卡助手尊享版将按*最低升级成本*排序并*过滤掉不可升级卡*。",
+                        + "挑卡助手尊享版将按 *最低升级成本* 排序并 *过滤掉不可升级卡* 。",
                     quote: "直达您想看的内容，毫无阻碍。挑卡助手尊享版将拓宽并深化您的阅卡体验。"
                 },
                 autobuy: {
